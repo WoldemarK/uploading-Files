@@ -24,7 +24,8 @@ public class FileController {
     public String listAllFiles(Model model) {
 
         model.addAttribute("files", fileService.loadAll().map(
-                        path -> ServletUriComponentsBuilder.fromCurrentContextPath()
+                        path -> ServletUriComponentsBuilder
+                                .fromCurrentContextPath()
                                 .path("/download/")
                                 .path(path.getFileName().toString())
                                 .toUriString())
